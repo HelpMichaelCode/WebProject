@@ -1,0 +1,84 @@
+﻿@model WebProject.Model.VehicleData
+<!DOCTYPE html>
+<head>
+    <title>ToolBox</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <h1 style="color:aquamarine; text-align:center;">ToolBox</h1>
+    <div id="app">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Vehicle ID</th>
+                        <th>IMEI</th>
+                        <th>ThingType</th>
+                        <th>TotalPlotsReviewed</th>
+                        <th>Missing</th>
+                        <th>LastUpdateTime</th>
+                        <th>PayloadId</th>
+                        <th>FeedProvider</th>
+                        <th>LastMessagedReceived</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="items in vechicleArr">
+                        {{items}}
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    @*<script>
+            var arr = new VehicleData;
+
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    vechicleArr: arr.GetVehicleData().ToArray()
+                }
+            });
+        </script>*@
+    <div class="container">
+        <!-- Content here -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+

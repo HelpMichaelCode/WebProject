@@ -1,0 +1,54 @@
+﻿CREATE TABLE PlotValidation(
+VehicleTrackingId INT IDENTITY(1,1) PRIMARY KEY,
+IMEI bigint,
+ThingType INT,
+TotalPlotsReviewed INT,
+Missing decimal(5,2),
+LastUpdateTime datetime2,
+PayloadId VARCHAR(50),
+FeedProvider VARCHAR(60),
+LastMessagedReceived VARCHAR(70));
+
+select * from PlotValidation
+
+drop table PlotValidation
+
+ALTER TABLE PlotValidation 
+ALTER COLUMN LastUpdateTime datetime2;
+
+-- Deletes all rows from the table
+DELETE FROM PlotValidation
+
+
+
+
+SqlDataAdapter adapter = new SqlDataAdapter();
+                    
+cmd.Parameters.Add("@Test", SqlDbType.BigInt).Value = IMEI;
+cmd.Parameters.Add("@ThingType", SqlDbType.Int).Value = ThingType;
+cmd.Parameters.Add("@TotalPlotsReviewed", SqlDbType.Int).Value = TotalPlotsReviewed;
+cmd.Parameters.Add("@Missing", SqlDbType.Decimal).Value = Decimal;
+cmd.Parameters.Add("@LastUpdateTime", SqlDbType.Timestamp).Value = now;
+cmd.Parameters.Add("@PayloadId", SqlDbType.NChar).Value = PayLaod;
+cmd.Parameters.Add("@FeedProvider",  SqlDbType.NChar).Value = FeedProvider;
+cmd.Parameters.Add("@LastMessagedReceived", SqlDbType.NChar).Value = LastMessagedReceived;
+
+
+
+cmd.Parameters["@IMEI"].Value = IMEI;
+cmd.Parameters["@ThingType"].Value = ThingType;
+cmd.Parameters["@TotalPlotsReviewed"].Value = TotalPlotsReviewed;
+cmd.Parameters["@Missing"].Value = Decimal;
+cmd.Parameters["@LastUpdateTime"].Value = now;
+cmd.Parameters["@PayloadId"].Value = PayLaod;
+cmd.Parameters["@FeedProvider"].Value = FeedProvider;
+cmd.Parameters["@LastMessagedReceived"].Value = LastMessagedReceived;
+adapter.InsertCommand = new SqlCommand(query, connection);
+adapter.InsertCommand = new SqlCommand(query, connection);
+adapter.InsertCommand.ExecuteNonQuery();
+adapter.InsertCommand.ExecuteNonQuery();
+
+
+Error:
+User profile is available. Using 'C:\Users\sanmi6n\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+System.InvalidOperationException: 'The 'IXmlRepository' instance could not be found. When an 'IXmlEncryptor' instance is set, a corresponding 'IXmlRepository' instance must also be set.'
